@@ -1,0 +1,66 @@
+﻿@model Cars.Models.car
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Delete Car</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="#">Dashboard</a></li>
+                    <li class="active">Add car</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>car</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.carname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.carname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.carimage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.carimage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.price)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.status)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

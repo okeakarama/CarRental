@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Cars.Models.log>
+
+@{
+    ViewBag.Title = "log";
+}
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Log Record</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="#">Dashboard</a></li>
+                    <li class="active">Record</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Record</strong>
+                        <div class="float-right"><strong>Current date:</strong> @DateTime.Now</div>
+                    </div>
+                    <div class="card-body">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Customer's Name</th>
+                                    <th>Customer's Email</th>
+                                    <th>Customer's Telephone</th>
+                                    <th>Lease Date</th>
+                                    <th>Return Date</th>
+                                    <th>Car Leased</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+@foreach (var item in Model)
+{
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.customername)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.customeremail)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.customertel)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.leasedate)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.retudate)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.carname)</td>
+                                </tr>
+}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+
+
+
+
+
+
+
+@*@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.leasedate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retudate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.logid }) |
+            @Html.ActionLink("Details", "Details", new { id = item.logid }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.logid })
+        </td>
+    </tr>
+}*@

@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Cars.Models.car>
+
+@{
+    ViewBag.Title = "availablecars";
+}
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Available Cars</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="#">Dashboard</a></li>
+                    <li class="active">Available Cars</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-sm-12">
+    
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4">
+
+            <div class="card">
+                <img class="card-img-top" src="~/images/@(System.IO.Path.GetFileName(item.carimage))" alt="@item.carimage" style="height:200px; width:100%">
+
+                <div class="card-body">
+                    <h4 class="card-title mb-3">@item.carname</h4> <small>@*@item.status*@</small>
+                    <p class="card-text">N @item.price <small>per day</small> <button class="btn">@Html.ActionLink("Lease", "leasecar", new { id = item.carid })</button></p>
+                </div>
+            </div>
+
+        </div>
+
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.carname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carimage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.carname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carimage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.carid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.carid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.carid })
+        </td>
+    </tr>
+}
+
+</table>*@
